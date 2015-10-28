@@ -19,6 +19,7 @@ return array(
         'HTML_CACHE_ON'         =>  false,   // 默认关闭静态缓存
         'STORAGE'               =>  './Public/',
         'BASE_HREF'             =>  'localhost',
+        'TPL_PATH'              =>  'Application/Admin/View/',
         'TMPL_CACHE_ON' => false,
         'TMPL_CACHE_ON' => false,
 );
