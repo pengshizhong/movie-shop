@@ -1,0 +1,15 @@
+@import "common";
+@import "aside";
+
+.search-list {
+    .search-item {
+        padding: 20px;
+        h3 {
+            margin: 0 0 30px;
+        }
+        .cover {
+            width: 100%;
+            height: 200px;
+        }
+    }
+}

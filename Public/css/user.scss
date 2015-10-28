@@ -1,0 +1,16 @@
+@import "common";
+@import "aside";
+
+.headimg {
+    height: 120px;
+    width: 120px;
+}
+.list-group-item {
+    img {
+        height: 100%;
+        width: 100%;
+    }
+}
+.search {
+    margin-bottom: 20px;
+}

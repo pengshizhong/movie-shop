@@ -1,0 +1,30 @@
+.select-ticket .movie .cover {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.select-ticket .cinema .panel-body {
+  padding: 0;
+}
+.select-ticket .cinema .list-group {
+  margin-bottom: 0;
+}
+.select-ticket .cinema .list-group .list-group-item {
+  border-left: 0;
+  border-right: 0;
+}
+.select-ticket .cinema .list-group .list-group-item .up {
+  line-height: 30px;
+  font-size: 18px;
+}
+.select-ticket .cinema .list-group .list-group-item .down {
+  line-height: 20px;
+  color: #ddd;
+  font-size: 14px;
+  display: none;
+}
+.select-ticket .cinema .list-group .list-group-item.selected {
+  background-color: #f5f5f5;
+}
+.select-ticket .cinema .list-group .list-group-item.selected .down {
+  display: block;
+}

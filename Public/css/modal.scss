@@ -1,0 +1,37 @@
+.select-ticket {
+    .movie {
+        .cover {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+    .cinema {
+        .panel-body {
+            padding: 0;
+        }
+        .list-group {
+            margin-bottom: 0;
+            .list-group-item {
+                border-left: 0;
+                border-right: 0;
+                .up {
+                    line-height: 30px;
+                    font-size: 18px;
+                }
+                .down {
+                    line-height: 20px;
+                    color: #ddd;
+                    font-size: 14px;
+                    display: none;
+
+                }
+                &.selected {
+                    background-color: #f5f5f5;
+                    & .down {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

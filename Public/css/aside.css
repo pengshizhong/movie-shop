@@ -1,0 +1,23 @@
+.aside .search {
+  margin-top: 40px;
+}
+.aside .search .form-group {
+  width: 75%;
+}
+.aside .ad {
+  margin: 20px 0;
+}
+.aside .ad img {
+  width: 100%;
+  height: 250px;
+}
+.aside .rank .page-header {
+  margin: 20px 0 5px;
+}
+.aside .rank .page-header .small {
+  color: #337ab7;
+}
+.aside .rank ol li {
+  line-height: 35px;
+  border-bottom: 1px solid #eee;
+}

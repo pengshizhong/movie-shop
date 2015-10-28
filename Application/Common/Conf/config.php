@@ -18,7 +18,7 @@ return array(
         'ACTION_CACHE_ON'       =>  false,  // 默认关闭Action 缓存
         'HTML_CACHE_ON'         =>  false,   // 默认关闭静态缓存
         'STORAGE'               =>  './Public/',
-        'BASE_HREF'             =>  'localhost',
+        'BASE_HREF'             =>  'http://localhost/movie-shop/',
         'TPL_PATH'              =>  'Application/Admin/View/',
         'TMPL_CACHE_ON' => false,
         'TMPL_CACHE_ON' => false,
