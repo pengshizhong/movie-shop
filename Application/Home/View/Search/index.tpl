@@ -4,23 +4,25 @@
     <div class="row search-list">
         <div class="col-xs-8">
             <div class="page-header">
-                <h3>全站搜索结果 <small>共找到4条符合搜索条件“抓妖记”</small></h3>
+                <h3>全站搜索结果 <small>共找到<?php echo count($result); ?>条符合搜索条件</small></h3>
             </div>
             <ul class="list-group">
+
+                <?php foreach($result as $movie){ ?>
                 <li class="list-group-item search-item">
-                    <h3>抓妖记<span class="label label-default">电影</span></h3>
+                    <h3>{$movie['name']}<span class="label label-default">电影</span></h3>
                     <div class="row">
                         <div class="col-xs-4">
-                            <img src="__PUBLIC__/img/1.jpg" alt="" class="cover">
+                            <img src="__PUBLIC__/{$movie['coverurl']}" alt="" class="cover">
                         </div>
                         <div class="col-xs-8">
-                            <div><strong>导演：</strong>徐诚意</div>
-                            <div><strong>主演：</strong>白百合</div>
+                            <div><strong>导演：</strong>{$movie['director']}</div>
+                            <div><strong>主演：</strong>{$movie['actor']}</div>
                             <div><strong>类型：</strong>奇幻 喜剧</div>
                             <div><strong>片长：</strong>90分钟</div>
-                            <div><strong>上映时间：</strong>2015-07-16</div>
+                            <div><strong>上映时间：</strong>{$movie['showtime']}</div>
                             <p><strong>剧情简介：</strong>
-                                在一个人与妖划界而治的世界，小伙子天荫（井柏然饰）阴差阳错地怀上了即将降世的小妖王，他被降妖天师小岚（白百何饰）一路...
+                                {$movie['description']}
                             </p>
                             <div>
                                 <button type="button" class="btn btn-primary btn-sm">选座购票</button>
@@ -29,56 +31,12 @@
                         </div>
                     </div>
                 </li>
-                <li class="list-group-item search-item">
-                    <h3>抓妖记<span class="label label-default">电影</span></h3>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <img src="__PUBLIC__/img/1.jpg" alt="" class="cover">
-                        </div>
-                        <div class="col-xs-8">
-                            <div><strong>导演：</strong>徐诚意</div>
-                            <div><strong>主演：</strong>白百合</div>
-                            <div><strong>类型：</strong>奇幻 喜剧</div>
-                            <div><strong>片长：</strong>90分钟</div>
-                            <div><strong>上映时间：</strong>2015-07-16</div>
-                            <p><strong>剧情简介：</strong>
-                                在一个人与妖划界而治的世界，小伙子天荫（井柏然饰）阴差阳错地怀上了即将降世的小妖王，他被降妖天师小岚（白百何饰）一路...
-                            </p>
-                            <div>
-                                <button type="button" class="btn btn-primary btn-sm">选座购票</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item search-item">
-                    <h3>抓妖记<span class="label label-default">电影</span></h3>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <img src="__PUBLIC__/img/1.jpg" alt="" class="cover">
-                        </div>
-                        <div class="col-xs-8">
-                            <div><strong>导演：</strong>徐诚意</div>
-                            <div><strong>主演：</strong>白百合</div>
-                            <div><strong>类型：</strong>奇幻 喜剧</div>
-                            <div><strong>片长：</strong>90分钟</div>
-                            <div><strong>上映时间：</strong>2015-07-16</div>
-                            <p><strong>剧情简介：</strong>
-                                在一个人与妖划界而治的世界，小伙子天荫（井柏然饰）阴差阳错地怀上了即将降世的小妖王，他被降妖天师小岚（白百何饰）一路...
-                            </p>
-                            <div>
-                                <button type="button" class="btn btn-primary btn-sm">选座购票</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </li>
-
+                <?php }?>
             </ul>
         </div>
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="search.html" method="get">
+                <form class="form-inline" action="{$searchurl}" method="get">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -95,16 +53,10 @@
                     <h4>电影票房榜 <small>7月30日 - 8月7日</small></h4>
                 </div>
                 <ol>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
+                    <?php for($i=0;$i<8;$i++){ ?>
+                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+
+                    <?php } ?>
                 </ol>
             </div>
 

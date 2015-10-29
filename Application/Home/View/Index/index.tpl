@@ -64,11 +64,11 @@
                         <?php for($i=0;$i<8;$i++){ ?>
                         <div class="col-xs-3">
                             <div class="item text-center">
-                                <img src="__PUBLIC__/{$movie[$i]['coverurl']}" alt="" />
-                                <h4 class="title">{$movie[$i]['name']}</h4>
-                                <h5>{$movie[$i]['remark']}</h5>
+                                <img src="__PUBLIC__/{$allmovie[$i]['coverurl']}" alt="" />
+                                <h4 class="title">{$allmovie[$i]['name']}</h4>
+                                <h5>{$allmovie[$i]['remark']}</h5>
                                 <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
+                                    <a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@
 
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="search.html" method="get">
+                <form class="form-inline" action="{$searchurl}" method="get">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -104,7 +104,8 @@
                 </div>
                 <ol>
                     <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="">{$movie[$i]['name']}</a></li>
+                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+
                     <?php } ?>
                 </ol>
             </div>

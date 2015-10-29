@@ -37,7 +37,7 @@
                         <li><a href="#">北京</a></li>
                     </ul>
                 </li>
-                <li><a href="sign.html">登陆</a></li>
+                <li><a href="index.php/Home/Sign.html">登陆</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

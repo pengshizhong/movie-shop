@@ -14,7 +14,7 @@
                 <h4>正在热映</h5>
             </div>
             <div class="row palying">
-                <?php foreach($movie as $mv){ ?>
+                <?php foreach($allmovie as $mv){ ?>
                 <div class="col-xs-3">
                     <div class="item text-center movieitemup">
                         <img class='movieitem' src="__PUBLIC__/img/{$mv['coverurl']}" alt="" />
@@ -31,7 +31,7 @@
         </div>
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="search.html" method="get">
+                <form class="form-inline" action="{$searchurl}" method="get">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -51,7 +51,8 @@
                 </div>
                 <ol>
                     <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="">{$movie[$i]['name']}</a></li>
+                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+
                     <?php } ?>
                 </ol>
             </div>

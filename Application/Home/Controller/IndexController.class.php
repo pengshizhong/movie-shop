@@ -7,9 +7,12 @@ class IndexController extends Controller {
 
         $model = new \Home\Model\MovieModel();
         $data  = $model->select('movie');
-        $this->assign('movie',$data);
+        $this->assign('allmovie',$data);
+        //var_dump($data);
+        $this->assign('movieurl',U('Movie/index'));
+      //  $this->assign('movieurl',U('Movie/index'));
        // var_dump($data[1]);
-
+        $this->assign('searchurl',U('Search/index'));
         $this->display();
     }
 }

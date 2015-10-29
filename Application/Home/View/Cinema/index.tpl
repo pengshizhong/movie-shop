@@ -44,7 +44,7 @@
         </div>
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="search.html" method="get">
+                <form class="form-inline" action="{$searchurl}" method="get">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -62,7 +62,8 @@
                 </div>
                 <ol>
                     <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="">{$allmovie[$i]['name']}</a></li>
+                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+
                     <?php } ?>
                 </ol>
             </div>

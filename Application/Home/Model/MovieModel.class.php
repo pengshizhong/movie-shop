@@ -10,9 +10,9 @@ namespace Home\Model;
 use Think\Model;
 class MovieModel extends Model
 {
-    function select($tableName,$where='',$limet=''){
+    function select($tableName,$where='',$limet='',$join=''){
         $model  = M($tableName);
-        $result = $model->where($where)->limit($limet)->select();
+        $result = $model->join($join)->where($where)->limit($limet)->select();
         return $result;
     }
 
@@ -39,6 +39,12 @@ class MovieModel extends Model
             'pageNextStart' => $Page->firstRow+$Page->listRows,
             'pageFront'     => $front,
         );
+        return $result;
+    }
+
+    function searchMovie($keyword){
+        $model  = M('movie');
+        $result = $model->where(" name like '%" . $keyword . '%\' ')->select();
         return $result;
     }
 }
