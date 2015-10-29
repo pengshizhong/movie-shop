@@ -14,172 +14,20 @@
                 <h4>正在热映</h5>
             </div>
             <div class="row palying">
+                <?php foreach($movie as $mv){ ?>
                 <div class="col-xs-3">
                     <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
+                        <img class='movieitem' src="__PUBLIC__/img/{$mv['coverurl']}" alt="" />
+                        <h4 class="title">{$mv['name']}</h4>
+                        <h5>{$mv['remark']}</h5>
                         <div>
                             <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>暂无评分</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
-            <div class="page-header">
-                <h4>即将上映</h5>
-            </div>
-            <div class="row palying">
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3">
-                    <div class="item text-center movieitemup">
-                        <img class='movieitem' src="__PUBLIC__/img/1.jpg" alt="" />
-                        <h4 class="title">抓妖记</h4>
-                        <h5>8月13日上映</h5>
-                        <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="col-xs-4 aside">
             <div class="search">
@@ -202,16 +50,9 @@
                     </h4>
                 </div>
                 <ol>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
+                    <?php for($i=0;$i<8;$i++){ ?>
+                    <li><a href="">{$movie[$i]['name']}</a></li>
+                    <?php } ?>
                 </ol>
             </div>
 
