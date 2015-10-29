@@ -54,130 +54,28 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#palying" aria-controls="home" role="tab" data-toggle="tab">正在热映</a></li>
-                <li role="presentation"><a href="#willpaly" aria-controls="profile" role="tab" data-toggle="tab">即将上映</a></li>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="palying">
                     <div class="row">
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/1.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/1.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/1.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/1.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/1.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
 
+                        <?php for($i=0;$i<8;$i++){ ?>
+                        <div class="col-xs-3">
+                            <div class="item text-center">
+                                <img src="__PUBLIC__/{$movie[$i]['coverurl']}" alt="" />
+                                <h4 class="title">{$movie[$i]['name']}</h4>
+                                <h5>{$movie[$i]['remark']}</h5>
+                                <div>
+                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php } ?>
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="willpaly">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <button type="button" class="btn btn-primary btn-sm">选座购票</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <button type="button" class="btn btn-primary btn-sm">选座购票</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            <div class="item text-center">
-                                <img src="__PUBLIC__/img/2.jpg" alt="" />
-                                <h4 class="title">抓妖记</h4>
-                                <h5>暂无评分</h5>
-                                <div>
-                                    <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
 
@@ -205,32 +103,14 @@
                     <h4>本周口碑榜 <a href=""><small>更多榜单</small></a></h4>
                 </div>
                 <ol>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
-                    <li><a href="">审判八号提案</a></li>
+                    <?php for($i=0;$i<8;$i++){ ?>
+                    <li><a href="">{$movie[$i]['name']}</a></li>
+                    <?php } ?>
                 </ol>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>
-        <ul>
-            <li><a href="">关于紫荆</a></li>
-            <li><a href="">联系我们</a></li>
-            <li><a href="">免责广告</a></li>
-            <li><a href="">帮助</a></li>
-        </ul>
-        © 2005－2015 zijing.com, all rights reserved
-        </p>
-    </footer>
 
 </div>
 
