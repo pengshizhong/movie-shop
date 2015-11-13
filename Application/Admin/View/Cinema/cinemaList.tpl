@@ -3,7 +3,7 @@
 <!-- 编辑表单 -->
 <div id="editDialog" class="hidden">
     <form id="editForm" class="form-horizontal">
-        <input type="hidden" name="cinemaId">
+        <input type="hidden" name="cinema_id">
         <div class="row">
             <div class="control-group span8">
                 <label class="control-label">影城名：</label>
@@ -84,7 +84,7 @@
 <script type="text/javascript" src="../assets/js/config-min.js"></script>
 <script type="text/javascript">
     BUI.use(['common/search','common/page'],function (Search) {
-        var host = 'http://192.168.253.1:8080/';
+      //  var host = 'http://192.168.253.1:8080/';
         //弹出表单
         var $editForm = $('#editForm');
         //编辑弹出框
@@ -98,7 +98,7 @@
                 var that = this;
                 $.ajax({
                     type: 'POST',
-                    url: host + '/admin/cinema/submitedit',
+                    url: '{$update}',
                     dataType : 'json',
                     data: $editForm.serialize(),
                     success: function(data){
@@ -126,7 +126,7 @@
                 var that = this;
                 $.ajax({
                     type: 'POST',
-                    url: host + '/admin/cinema/add',
+                    url:'{$insert}',
                     dataType : 'json',
                     data: $addForm.serialize(),
                     success: function(data){
@@ -143,12 +143,12 @@
         });
         var enumObj = {"1":"男","0":"女"},
                 columns = [
-        {title:'影城编号',dataIndex:'cinemaId',width:80,renderer:function(v, obj){
+        {title:'影城编号',dataIndex:'cinema_id',width:80,renderer:function(v, obj){
           return Search.createLink({
             id : 'detail' + v,
             title : obj.name + '影城影厅信息',
             text : v,
-            href : 'cinema/hall.html#cinemaId=' + v
+            href : 'cinema/hall.html#cinema_id=' + v
           });
     }},
     {title:'影城名',dataIndex:'name',width:100},
@@ -160,7 +160,7 @@
       return editStr + delStr;
     }}
     ],
-    store = Search.createStore(host + '/admin/cinema/list'),
+    store = Search.createStore('{$select}'),
             gridCfg = Search.createGridCfg(columns,{
                 tbar : {
                     items : [
@@ -185,13 +185,13 @@
     function delItems(items){
         var ids = [];
         BUI.each(items,function(item){
-            ids.push(item.cinemaId);
+            ids.push(item.cinema_id);
         });
 
         if(ids.length){
             BUI.Message.Confirm('确认要删除选中的记录么？',function(){
                 $.ajax({
-                    url : host + '/admin/cinema/delete',
+                    url : '{$delete}',
                     type: 'POST',
                     dataType : 'json',
                     data : {ids : ids},

@@ -313,8 +313,9 @@ abstract class Controller {
 
         $model = M($tableName);
         $ids = I('post.ids');
+        $idName = $tableName . '_id';
         foreach($ids as $id){
-            $where = ' movie_id = ' . $id . ' ';
+            $where = $idName . '= ' . $id . ' ';
             //var_dump($id);
             $model->where($where)->delete();
         }
