@@ -89,4 +89,8 @@ abstract class Controller {
         redirect($url,$delay,$msg);
     }
 
+    public function updateData($data,$tableName){
+        //$model = M($tableName);
+        var_dump('api');
+    }
 }

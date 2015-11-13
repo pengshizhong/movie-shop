@@ -37,10 +37,16 @@ class MovieListController extends Controller {
         $limit = I('get.pageInde') * I('get.limit');
         $result = $model->select('movie',$where,I('get.start') . ',' . $limit);
         //var_dump($result);
-        $data = new \Org\BUI\BUIUnit($result,'Movie');
-        //var_dump($data);
-        //$result = '{"rows":[{"movie_id":"a","b":"b","c":"c"}],"results":1,"hasError":false,"error":""}';
-        //var_dump(json_decode($result));
-        echo json_encode($data);
+        $this->selectData($result,'Movie');
+//        $data = new \Org\BUI\BUIUnit($result,'Movie');
+//        //var_dump($data);
+//        //$result = '{"rows":[{"movie_id":"a","b":"b","c":"c"}],"results":1,"hasError":false,"error":""}';
+//        //var_dump(json_decode($result));
+//        echo json_encode($data);
+    }
+
+    public function update(){
+        
+        $this->updateData();
     }
 }

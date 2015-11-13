@@ -302,6 +302,31 @@ abstract class Controller {
         // 执行后续操作
         Hook::listen('action_end');
     }
+    public function updateData($data,$tableName,$where){
+        $model = M($tableName);
+        $model->where($where)->save($data);
+    }
+
+    public function deleteData($tableName,$where){
+        $model = M($tableName);
+        $model->where($where)->delete();
+    }
+
+    public function insertData($tableName,$data){
+        $model = M($tableName);
+        $model->add($data);
+    }
+    public function  selectData($result,$tableName){
+       // $result = $model->select('movie',$where,I('get.start') . ',' . $limit);
+        //var_dump($result);
+        $data = new \Org\BUI\BUIUnit($result,$tableName);
+        //var_dump($data);
+        //$result = '{"rows":[{"movie_id":"a","b":"b","c":"c"}],"results":1,"hasError":false,"error":""}';
+        //var_dump(json_decode($result));
+        echo json_encode($data);
+
+    }
+
 }
 // 设置控制器别名 便于升级
 class_alias('Think\Controller','Think\Action');
