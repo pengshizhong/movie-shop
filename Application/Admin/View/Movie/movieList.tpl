@@ -3,7 +3,7 @@
 <!-- 编辑表单 -->
 <div id="editDialog" class="hidden">
     <form id="editForm" class="form-horizontal">
-        <input type="hidden" name="movieId">
+        <input type="hidden" name="movie_id">
         <div class="row">
             <div class="control-group span8">
                 <label class="control-label">影片名字：</label>
@@ -81,7 +81,7 @@
             <div class="control-group span8">
                 <label class="control-label">影片编号：</label>
                 <div class="controls">
-                    <input type="text" class="control-text" name="movieId">
+                    <input type="text" class="control-text" name="movie_id">
                 </div>
             </div>
             <div class="control-group span8">
@@ -122,7 +122,7 @@
 <script type="text/javascript" src="../assets/js/config-min.js"></script>
 <script type="text/javascript">
     BUI.use(['common/search','common/page'],function (Search) {
-                var host = 'http://192.168.253.1:8080/';
+                var host = '<?php echo C("BASE_HREF"); ?>/index.php/Movie/MovieList';
                 //弹出表单
                 var $editForm = $('#editForm');
                 //编辑弹出框
@@ -170,7 +170,7 @@
                                 if(data.success){ //添加成功
                                     that.close();
                                     search.load();
-
+                                   // alert(3);
                                 }else{ //添加失败
                                     BUI.Message.Alert('添加失败！');
                                 }
@@ -180,7 +180,7 @@
                 });
                 var enumObj = {"1":"男","0":"女"},
                         columns = [
-                            {title:'影片编号',dataIndex:'movieId',width:80},
+                            {title:'影片编号',dataIndex:'movie_id',width:80},
                             {title:'影片名字',dataIndex:'name',width:100},
                             {title:'导演',dataIndex:'director',width:70},
                 {title:'封面图片',dataIndex:'coverurl',width:300,renderer: function(value, obj){
@@ -195,7 +195,7 @@
         return editStr + delStr;
     }}
     ],
-    store = Search.createStore(host + '/admin/movie/list'),
+    store = Search.createStore('{$select}' ),
             gridCfg = Search.createGridCfg(columns,{
                 tbar : {
                     items : [
@@ -220,7 +220,7 @@
     function delItems(items){
         var ids = [];
         BUI.each(items,function(item){
-            ids.push(item.movieId);
+            ids.push(item.movie_id);
         });
 
         if(ids.length){
@@ -262,6 +262,7 @@
     });
     //监听事件，编辑
     grid.on('cellclick',function(ev){
+        //alert(1);
         var sender = $(ev.domTarget); //点击的Dom
         if(sender.hasClass('btn-edit')){
             var record = ev.record;

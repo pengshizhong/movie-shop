@@ -16,7 +16,7 @@ class LoginModel extends Model
 
     function check($username,$password){
         $model   = M('user');
-        $account = $model->where(" email='" . $username "' ")->select();
+        $account = $model->where(" email='" . $username . "' ")->select();
         $account = $account[0];
         if($account){
             if($password==$account['password']){

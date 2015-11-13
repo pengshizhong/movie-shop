@@ -12,7 +12,10 @@ class MovieModel extends Model
 {
     function select($tableName,$where='',$limet='',$join=''){
         $model  = M($tableName);
-        $result = $model->join($join)->where($where)->limit($limet)->select();
+        if($join)
+            $result = $model->join($join)->where($where)->limit($limet)->select();
+        else
+            $result = $model->where($where)->limit($limet)->select();
         return $result;
     }
 
@@ -46,5 +49,10 @@ class MovieModel extends Model
         $model  = M('movie');
         $result = $model->where(" name like '%" . $keyword . '%\' ')->select();
         return $result;
+    }
+
+    function createwhere(){
+      var_dump($_GET);
+      //  foreach(I('get'))
     }
 }
