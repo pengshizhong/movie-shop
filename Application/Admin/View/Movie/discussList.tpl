@@ -60,7 +60,7 @@
       return delStr;
     }}
     ],
-    store = Search.createStore(host + '/admin/comment/list'),
+    store = Search.createStore('{$select}'),
             gridCfg = Search.createGridCfg(columns,{
                 tbar : {
                     items : [

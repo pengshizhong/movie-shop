@@ -331,8 +331,6 @@ abstract class Controller {
         //var_dump($result);
         $data = new \Org\BUI\BUIUnit($result,$tableName);
         //var_dump($data);
-        //$result = '{"rows":[{"movie_id":"a","b":"b","c":"c"}],"results":1,"hasError":false,"error":""}';
-        //var_dump(json_decode($result));
         echo json_encode($data);
 
     }
