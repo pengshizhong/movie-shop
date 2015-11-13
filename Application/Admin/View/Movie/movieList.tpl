@@ -136,11 +136,14 @@
                         var that = this;
                         $.ajax({
                             type: 'POST',
-                            url: host + '/admin/movie/submitedit',
+                            url:  '{$update}',
                             dataType : 'json',
                             data: $editForm.serialize(),
                             success: function(data){
+                                alert(data);
                                 if(data.success){ //修改成功
+                                    alert(data);
+                                    alert('修改成功');
                                     that.close();
                                     search.load();
                                 }else{ //修改失败
@@ -163,7 +166,7 @@
                         var that = this;
                         $.ajax({
                             type: 'POST',
-                            url: host + '/admin/movie/add',
+                            url:  '{$insert}',
                             dataType : 'json',
                             data: $addForm.serialize(),
                             success: function(data){
@@ -224,9 +227,10 @@
         });
 
         if(ids.length){
+            //alert(ids);
             BUI.Message.Confirm('确认要删除选中的记录么？',function(){
                 $.ajax({
-                    url : host + '/admin/movie/delete',
+                    url :  '{$delete}',
                     type : 'POST',
                     dataType : 'json',
                     data : {ids : ids},

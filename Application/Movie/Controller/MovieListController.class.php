@@ -46,7 +46,30 @@ class MovieListController extends Controller {
     }
 
     public function update(){
-        
-        $this->updateData();
+        //var_dump($_POST);
+        $data = [
+                 'movie_id' => I('post.movie_id'),
+                 'coverurl' => I('post.coverurl'),
+                 'name'     => I('post.name'),
+                 'director' => I('post.director'),
+                 'type'     => I('post.type') ,
+                ];
+        $where = ' movie_id=' . I('post.movie_id') . ' ';
+        $this->updateData($data,'movie',$where);
+    }
+
+    public function delete(){
+       // var_dump($_POST);
+        $this->deleteData('movie');
+    }
+
+    public function insert(){
+        $data = [
+                'coverurl' => I('post.coverurl'),
+                'name'     => I('post.name'),
+                'director' => I('post.director'),
+                'type'     => I('post.type'),
+        ];
+        $this->insertData('movie',$data);
     }
 }

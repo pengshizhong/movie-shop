@@ -305,16 +305,26 @@ abstract class Controller {
     public function updateData($data,$tableName,$where){
         $model = M($tableName);
         $model->where($where)->save($data);
+        echo '{"success":1}';
+       // echo "{'success':'true'}";
     }
 
     public function deleteData($tableName,$where){
+
         $model = M($tableName);
-        $model->where($where)->delete();
+        $ids = I('post.ids');
+        foreach($ids as $id){
+            $where = ' movie_id = ' . $id . ' ';
+            //var_dump($id);
+            $model->where($where)->delete();
+        }
+        echo '{"success":1}';
     }
 
     public function insertData($tableName,$data){
         $model = M($tableName);
         $model->add($data);
+        echo '{"success":1}';
     }
     public function  selectData($result,$tableName){
        // $result = $model->select('movie',$where,I('get.start') . ',' . $limit);
