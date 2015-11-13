@@ -4,12 +4,12 @@
 <!-- 编辑表单 -->
 <div id="content" class="hidden">
     <form id="form" class="form-horizontal">
-        <input type="hidden" name="userId">
+        <input type="hidden" name="user_id">
         <div class="row">
             <div class="control-group span8">
                 <label class="control-label">会员名：</label>
                 <div class="controls">
-                    <input type="text" name="nikename" class="input-normal control-text" data-rules="{required : true}">
+                    <input type="text" name="nickname" class="input-normal control-text" data-rules="{required : true}">
                 </div>
             </div>
             <div class="control-group span8">
@@ -41,13 +41,13 @@
             <div class="control-group span8">
                 <label class="control-label">会员编号：</label>
                 <div class="controls">
-                    <input type="text" class="control-text" name="userId">
+                    <input type="text" class="control-text" name="user_id">
                 </div>
             </div>
             <div class="control-group span8">
                 <label class="control-label">会员名：</label>
                 <div class="controls">
-                    <input type="text" class="control-text" name="nikename">
+                    <input type="text" class="control-text" name="nickname">
                 </div>
             </div>
             <div class="span3 offset2">
@@ -64,7 +64,7 @@
 <script type="text/javascript" src="../assets/js/bui-min.js"></script>
 <script type="text/javascript" src="../assets/js/config-min.js"></script>
 <script type="text/javascript">
-    var host = 'http://192.168.253.1:8080/'
+
 
 
     BUI.use(['common/search','common/page'],function (Search) {
@@ -81,7 +81,7 @@
                         var that = this;
                         $.ajax({
                             type: 'POST',
-                            url: host + '/admin/user/submitedit',
+                            url: '{$update}',
                             dataType : 'json',
                             data: $form.serialize(),
                             success: function(data){
@@ -99,8 +99,8 @@
 
                 var enumObj = {"1":"男","0":"女"},
                         columns = [
-                            {title:'会员编号',dataIndex:'userId',width:80},
-                            {title:'会员名',dataIndex:'nikename',width:100},
+                            {title:'会员编号',dataIndex:'user_id',width:80},
+                            {title:'会员名',dataIndex:'nickname',width:100},
                 {title:'会员头像',dataIndex:'headurl',width:200,renderer: function(value, obj){
                       return '<img src="'+ value +'" class="user-head-img" ></img>'
                 }},
@@ -113,7 +113,7 @@
       return editStr + delStr;
     }}
     ],
-    store = Search.createStore(host + 'admin/user/list'),
+    store = Search.createStore('{$select}'),
             gridCfg = Search.createGridCfg(columns,{
                 tbar : {
                     items : [
@@ -137,14 +137,14 @@
     function delItems(items){
         var ids = [];
         BUI.each(items,function(item){
-            ids.push(item.userId);
+            ids.push(item.user_id);
         });
 
         if(ids.length){
             BUI.Message.Confirm('确认要删除选中的记录么？',function(){
                 $.ajax({
                     type:'POST',
-                    url : host + '/admin/user/delete',
+                    url : '{$delete}',
                     dataType : 'json',
                     data : {ids : ids},
                     success : function(data){
