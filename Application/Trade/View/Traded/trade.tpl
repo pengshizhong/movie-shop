@@ -59,7 +59,7 @@
       return delStr;
     }}
     ],
-    store = Search.createStore(host + '/admin/account/list'),
+    store = Search.createStore('{$select}3'),
             gridCfg = Search.createGridCfg(columns,{
                 tbar : {
                     items : [
@@ -83,7 +83,7 @@
     function delItems(items){
         var ids = [];
         BUI.each(items,function(item){
-            ids.push(item.accountId);
+            ids.push(item.user_id);
         });
 
         if(ids.length){
