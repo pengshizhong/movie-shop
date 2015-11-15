@@ -22,12 +22,12 @@
 
 <body>
 <div class="container">
-    <form class="form-signin" action="user.html">
+    <form class="form-signin" action="{$submitUrl}">
         <h2 class="form-signin-heading">紫荆电影网</h2>
         <label for="inputEmail" class="sr-only">电子邮箱</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="电子邮箱" required autofocus>
+        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="电子邮箱" required autofocus>
         <label for="inputPassword" class="sr-only">密码</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="密码" required>
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="密码" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit">登陆/快速注册</button>
     </form>
 

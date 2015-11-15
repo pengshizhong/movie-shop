@@ -1,4 +1,67 @@
 <include file="./Application/Home/View/Something/header.tpl"  />
+<div class="modal fade bs-example-modal-lg select-ticket" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">《抓妖记》选座购票</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-xs-3 movie">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">影片</div>
+                            <div class="panel-body">
+                                <img src="img/1.jpg" alt="" class="cover" />
+                                <p>118分钟 暂无评分</p>
+                                <p>喜剧/奇幻/古装 中国大陆</p>
+                                <p>导演：许诚毅</p>
+                                <p>导演：许诚毅</p>
+                                <p>主演：白百何/井柏然/姜武</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-5 cinema">
+                        <div class="panel panel-default">
+                            <div class="panel-heading text-center">选择影院</div>
+                            <div class="panel-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item selected" data-id="1" >
+                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
+                                        <div class="down">华南农业大学越难路44号</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
+                                        <div class="down">华南农业大学越难路44号</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
+                                        <div class="down">华南农业大学越难路44号</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
+                                        <div class="down">华南农业大学越难路44号</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
+                                        <div class="down">华南农业大学越难路44号</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-xs-8">

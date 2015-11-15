@@ -6,6 +6,9 @@
     <base href="<?php echo C('BASE_HREF') ?>">
     <title>紫荆电影网</title>
     <link rel="stylesheet" href="__PUBLIC__/css/lib/bootstrap.css">
+    <?php foreach($allcss as $css){ ?>
+    <link rel="stylesheet" href="__PUBLIC__/css/{$css}.css">
+    <?php }?>
     <link rel="stylesheet" href="__PUBLIC__/css/index.css" media="screen" title="no title" charset="utf-8"> </head>
     <script src="__PUBLIC__/js/lib/jquery.min.js"></script>
     <script src="__PUBLIC__/js/lib/bootstrap.js"></script>
@@ -37,7 +40,16 @@
                         <li><a href="#">北京</a></li>
                     </ul>
                 </li>
-                <li><a href="index.php/Home/Sign.html">登陆</a></li>
+
+                <li><a href="index.php/Home/Sign.html">
+                        <?php if(cookie('username'))
+                            echo '你好，' . cookie('username');
+                            else
+                            echo '登陆';
+                        ?>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

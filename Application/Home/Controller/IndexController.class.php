@@ -11,7 +11,7 @@ class IndexController extends Controller {
         //var_dump($data);
         $this->assign('movieurl',U('Movie/index'));
       //  $this->assign('movieurl',U('Movie/index'));
-       // var_dump($data[1]);
+        // var_dump($data[1]);
         $this->assign('searchurl',U('Search/index'));
         $this->display();
     }

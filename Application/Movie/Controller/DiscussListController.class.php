@@ -20,7 +20,7 @@ class DiscussListController extends Controller {
             $where = " addDate <='" . I('get.endDate') . "' and " . $where;
         }
         if(I('get.user_id')){
-            $where = " user_id=" . I('get.user_id') . " and " . $where;
+            $where = " user.user_id=" . I('get.user_id') . " and " . $where;
         }
         if(I('get.comment_id')){
             $where = " comment_id=" . I('get.comment_id') . " and " . $where;

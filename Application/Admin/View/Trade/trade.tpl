@@ -68,14 +68,14 @@
                 plugins : [Grid.Plugins.CheckSelection,Grid.Plugins.AutoFit], //勾选插件、自适应宽度插件
                 // 底部工具栏
                 tbar:{
-                    items:[{
-                        btnCls : 'button button-primary button-small',
-                        text:'命令一',
-                        handler : function(){
-                            delFunction();
+                    // items:[{
+                    //     btnCls : 'button button-primary button-small',
+                    //     text:'命令一',
+                    //     handler : function(){
+                    //         delFunction();
 
-                        }
-                    }]
+                    //     }
+                    // }]
                 },
                 // 顶部工具栏
                 bbar : {
