@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">场次号</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static scheduleId" data-scheduleId="3434434">3434434</p>
+                                <p class="form-control-static schedule_id" data-schedule_id="{$schedule_id}">{$schedule_id}</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -88,7 +88,7 @@
                     $seatsDom = $('.seat-info'),
                     $sumDom = $('.seats-sum-info'),
                     $sumPriceDom = $('.seats-sum-price-info'),
-                    scheduleId = parseInt($('.scheduleId').html());
+                    schedule_id = parseInt($('.schedule_id').html());
             seatSum = 0,
                     price = parseInt($('.seat-price').data('price'));
 
@@ -127,7 +127,7 @@
 
                 //构造提交数据
                 var submitData = {};
-                submitData.scheduleId = scheduleId;
+                submitData.schedule_id = schedule_id;
                 submitData.seats=[];
                 for(var key in seats) {
                     submitData.seats.push(seats[key]);
@@ -137,11 +137,11 @@
                 $.ajax({
                     type: 'POST',
                     data: submitData,
-                    url: '/', //此处填写提交url
+                    url: '{$buy}', //此处填写提交url
                     success: function(data){
                         if(data.success) {
                             alert('提交订单成功！！正跳转你的主页');
-                            location.href= "/home/user.jsp"; //填写跳转url
+                            location.href= "{$user}"; //填写跳转url
                         }
                     }
                 })

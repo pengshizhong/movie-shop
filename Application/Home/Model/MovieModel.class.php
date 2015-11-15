@@ -10,6 +10,7 @@ namespace Home\Model;
 use Think\Model;
 class MovieModel extends Model
 {
+
     function select($tableName,$where='',$limet='',$join=''){
         $model  = M($tableName);
         if($join)
@@ -54,5 +55,10 @@ class MovieModel extends Model
     function createwhere(){
       var_dump($_GET);
       //  foreach(I('get'))
+    }
+
+    function addData($tablename,$data){
+        $model = M($tablename);
+        $model->save($data);
     }
 }

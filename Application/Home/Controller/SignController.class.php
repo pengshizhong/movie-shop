@@ -7,11 +7,12 @@ class SignController extends Controller {
         $this->display();
     }
 
-    private function setToken($username){
+    private function setToken($data){
         $token = md5(date('Y-m-d-h-i-s'));
         session('token',$token);
         cookie('token',$token);
-        cookie('username',$username);
+        cookie('username',$data['nickname']);
+        session('user_id',$data['user_id']);
     }
     public function check(){
 
@@ -21,7 +22,7 @@ class SignController extends Controller {
         $result = $result[0];
         if($result){
             if($result['password']==I('get.password')){
-                $this->setToken($result['nickname']);
+                $this->setToken($result);
                 $this->redirect('Home/Index/index', array('cate_id' => 2), 1, '<script>alert("success")</script>');
             }
             else{
@@ -38,7 +39,8 @@ class SignController extends Controller {
             ];
             $user = M('user');
             $user->add($data);
-            $this->setToken($result['nickname']);
+            $data['user_id'] = $user->getLastInsID();
+            $this->setToken($data);
             $this->redirect('Home/Index/index', array('cate_id' => 2), 1, '<script>alert("register success")</script>');
         }
     }
