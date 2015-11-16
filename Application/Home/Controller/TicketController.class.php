@@ -6,8 +6,13 @@ class TicketController extends Controller {
         $id = I('get.schedule_id');
         $allcss =['ticket'];
         $model  = new \Home\Model\MovieModel();
-        $seat = $model->select('account',' schedule_id=' . $id);
+        $join = [
+            ' movie on movie.movie_id=schedule.movie_id ',
+            ' account on account.schedule_id',
+        ];
+        $seat = $model->select('schedule',' schedule_id=' . $id,'',$join);
         //var_dump($seat);
+        var_dump($seat);
         $this->assign('schedule_id',$id);
         $this->assign('seat',$seat);
         $this->assign('movieurl',U('Movie/index'));
