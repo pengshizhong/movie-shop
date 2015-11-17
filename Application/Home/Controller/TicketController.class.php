@@ -8,18 +8,20 @@ class TicketController extends Controller {
         $model  = new \Home\Model\MovieModel();
         $join = [
             ' movie on movie.movie_id=schedule.movie_id ',
-            ' account on account.schedule_id',
+
         ];
-        $seat = $model->select('schedule',' schedule_id=' . $id,'',$join);
+        $seat = $model->select('account',' schedule_id=' . $id);
+        $movieInfo = $model->select('schedule',' schedule_id=' . $id,'',$join);
+        //var_dump($movieInfo);
         //var_dump($seat);
-        var_dump($seat);
+        $this->assign('movieInfo',$movieInfo[0]);
         $this->assign('schedule_id',$id);
         $this->assign('seat',$seat);
         $this->assign('movieurl',U('Movie/index'));
         $this->assign('searchurl',U('Search/index'));
         $this->assign('allcss',$allcss);
         $this->assign('buy',U('buy'));
-        $this->assign('user',U('user'));
+        $this->assign('user',U('user/index'));
         $this->display();
 
     }
@@ -29,12 +31,16 @@ class TicketController extends Controller {
         $lockModel = new \Think\Model(); // 实例化一个model对象 没有对应任何数据表
         $model  = new \Home\Model\MovieModel();
         $schedule_id = I('post.schedule_id');
-        $seats = I('post.seats');
+        $tickets = I('post.seats');
         $user_id = session('user_id');
-       // $account = M('account');
+         // $account = M('account');
+        //M()->query("lock tables plan_article write");
         M()->startTrans();
-        //$lockModel->query("lock tables schedule write");
-        $tickets = $model->select('account');
+        //M()->query("lock tables account write");
+
+        $seats = $model->select('account');
+        // var_dump($tickets);
+        $tflag = true;
         foreach($tickets as $ticket){
             $flag = true;
             foreach($seats as $seat){
@@ -45,17 +51,28 @@ class TicketController extends Controller {
             }
             if($flag){
                 $data = [
-                    'buy_time' => date('Y-m-d-h-i-s'),
+                    'buy_time' => date('Y-m-d h-i-s'),
                     'col'  => $ticket['col'],
                     'row'  => $ticket['row'],
                     'user_id' => $user_id,
                     'schedule_id' => $schedule_id,
                 ];
-                $model->addData($data);
+                //var_dump($data);
+                $model->addData('account',$data);
+            }
+            else{
+                M()->rollback();
+                echo '{"success":0}';
+                $tflag=false;
+                break;
             }
         }
-        //$lockModel->query('unlock tables');
-        M()->commit();
 
+        if($tflag) {
+            M()->commit();
+            echo '{"success":1}';
+            //echo '{"success":1}';
+        }
+        M()->query('unlock tables');
     }
 }

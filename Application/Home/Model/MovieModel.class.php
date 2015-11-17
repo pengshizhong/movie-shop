@@ -59,6 +59,6 @@ class MovieModel extends Model
 
     function addData($tablename,$data){
         $model = M($tablename);
-        $model->save($data);
+        $model->add($data);
     }
 }

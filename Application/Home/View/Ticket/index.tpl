@@ -43,11 +43,11 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">影片</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">破风</p>
+                                <p class="form-control-static">{$movieInfo['name']}</p>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">场次号</label>
+                            <label class="col-sm-3 control-label">{$movieInfo['schedule_id']}</label>
                             <div class="col-sm-9">
                                 <p class="form-control-static schedule_id" data-schedule_id="{$schedule_id}">{$schedule_id}</p>
                             </div>
@@ -55,13 +55,13 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">时间 </label>
                             <div class="col-sm-9">
-                                <p class="form-control-static">08月07日 周五 16:50</p>
+                                <p class="form-control-static">{$movieInfo['date']}</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">票价</label>
                             <div class="col-sm-9">
-                                <p class="form-control-static" ><span class="seat-price" data-price="43">43</span>元 / 张</p>
+                                <p class="form-control-static" ><span class="seat-price" data-price="43">{$movieInfo['price']}</span>元 / 张</p>
                             </div>
                         </div>
                         <div class="form-group">
@@ -137,11 +137,17 @@
                 $.ajax({
                     type: 'POST',
                     data: submitData,
+                    dataType : 'json',
                     url: '{$buy}', //此处填写提交url
                     success: function(data){
-                        if(data.success) {
+                        //var_dump(data);
+                        //alert(data);
+                        if(data.success==1) {
                             alert('提交订单成功！！正跳转你的主页');
                             location.href= "{$user}"; //填写跳转url
+                        }
+                        else{
+                            alert('提交订单失败！');
                         }
                     }
                 })
@@ -150,5 +156,48 @@
 
 
         })
+
+        function var_dump( objElement, intLimit, intDepth )
+        {
+            intDepth = intDepth?intDepth:0;
+            intLimit = intLimit?intLimit:1;
+
+            strReturn = '<ol>';
+
+            for( property in objElement )
+            {
+                // Property domConfig isn't accesible
+                if( property != 'domConfig' )
+                {
+                    strReturn += '<li><strong>' + property + '</strong> <small>(' + ( typeof objElement[property] ) + ')</small>';
+
+                    if ( typeof objElement[property] == 'number' || typeof objElement[property] == 'boolean' ) {
+                        strReturn += ' : <em>' + objElement[property] + '</em>';
+                    }
+
+                    if ( typeof objElement[property] == 'string' && objElement[property] ) {
+                        strReturn += ': <div style="background:#C9C9C9; border:1px solid black; overflow:auto;"><code>' +
+                                objElement[property].replace(/</g, '<').replace(/>/g, '>') + '</code></div>';
+                    }
+
+                    if ( typeof objElement[property] == 'object' && ( intDepth < intLimit ) ) {
+                        strReturn += var_dump( objElement[property], intLimit, ( intDepth + 1 ) );
+                    }
+
+                    strReturn += '</li>';
+                }
+            }
+
+            strReturn += '</ol>';
+
+            if ( intDepth == 0 )
+            {
+                winpop = window.open( "", "", "width=800, height=600, scrollbars, resizable" );
+                winpop.document.write( '<pre>' + strReturn + '</pre>' );
+                winpop.document.close();
+            }
+
+            return strReturn;
+        }
     </script>
 <include file="./Application/Home/View/Something/footer.tpl"  />

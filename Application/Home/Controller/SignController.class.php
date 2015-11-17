@@ -33,9 +33,9 @@ class SignController extends Controller {
             $data = [
                 'email' => I('get.email'),
                 'password' => I('get.password'),
-                'phone' => '13538805451',
-                'nickname' => 'dsa1212',
-                'headurl' => 'image/33.jpg',
+                'phone' => '-',
+                'nickname' => md5(date('Y-m-d h-i-s')),
+                'headurl' => 'headicon.jpg',
             ];
             $user = M('user');
             $user->add($data);
