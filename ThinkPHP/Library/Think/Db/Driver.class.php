@@ -328,6 +328,9 @@ abstract class Driver {
         $this->_linkID = null;
     }
 
+    public function getDb(){
+        return $this->_linkID;
+    }
     /**
      * 数据库错误信息
      * 并显示当前的SQL语句

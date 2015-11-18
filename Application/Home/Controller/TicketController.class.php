@@ -28,18 +28,16 @@ class TicketController extends Controller {
 
     public function buy(){
         //var_dump($_POST);
-        $lockModel = new \Think\Model(); // 实例化一个model对象 没有对应任何数据表
+        //$lockModel = new \Think\Model(); // 实例化一个model对象 没有对应任何数据表
         $model  = new \Home\Model\MovieModel();
         $schedule_id = I('post.schedule_id');
         $tickets = I('post.seats');
         $user_id = session('user_id');
          // $account = M('account');
-        //M()->query("lock tables plan_article write");
+        $lockModel = M();
         M()->startTrans();
-        //M()->query("lock tables account write");
-
+        $lockModel->lockTable('account',1);
         $seats = $model->select('account');
-        // var_dump($tickets);
         $tflag = true;
         foreach($tickets as $ticket){
             $flag = true;
@@ -73,6 +71,6 @@ class TicketController extends Controller {
             echo '{"success":1}';
             //echo '{"success":1}';
         }
-        M()->query('unlock tables');
+
     }
 }
