@@ -3,9 +3,12 @@ namespace Home\Controller;
 use Think\Controller;
 class AController extends Controller {
     public function index(){
+        echo THINK_VERSION;
         $query = M();
-        var_dump($query);
-        $query->query('select * from user');
-        var_dump($query);
+        $sql = 'lock tables user write';
+        $dbLink = $query->getDbLink();
+        //$ab = $query->query($sql);
+        var_dump($dbLink);
+        //var_dump($query);
     }
 }

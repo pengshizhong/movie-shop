@@ -137,13 +137,16 @@ abstract class Driver {
      * @return mixed
      */
     public function query($str,$fetchSql=false) {
+
         $this->initConnect(false);
         if ( !$this->_linkID ) return false;
         $this->queryStr     =   $str;
+        //var_dump($this);
         if(!empty($this->bind)){
             $that   =   $this;
             $this->queryStr =   strtr($this->queryStr,array_map(function($val) use($that){ return '\''.$that->escapeString($val).'\''; },$this->bind));
         }
+        //var_dump($fetchSql);
         if($fetchSql){
             return $this->queryStr;
         }
@@ -153,11 +156,14 @@ abstract class Driver {
         N('db_query',1); // 兼容代码
         // 调试开始
         $this->debug(true);
+
         $this->PDOStatement = $this->_linkID->prepare($str);
+        var_dump($this->PDOStatement);
         if(false === $this->PDOStatement){
             $this->error();
             return false;
         }
+        //var_dump($this->bind);
         foreach ($this->bind as $key => $val) {
             if(is_array($val)){
                 $this->PDOStatement->bindValue($key, $val[0], $val[1]);
@@ -167,13 +173,16 @@ abstract class Driver {
         }
         $this->bind =   array();
         try{
+            echo 'start';
             $result =   $this->PDOStatement->execute();
+            var_dump($result);
             // 调试结束
             $this->debug(false);
             if ( false === $result ) {
                 $this->error();
                 return false;
             } else {
+              //  var_dump($this);
                 return $this->getResult();
             }
         }catch (\PDOException $e) {
@@ -190,6 +199,7 @@ abstract class Driver {
      * @return mixed
      */
     public function execute($str,$fetchSql=false) {
+       // echo 'exec';
         $this->initConnect(true);
         if ( !$this->_linkID ) return false;
         $this->queryStr = $str;
@@ -296,7 +306,10 @@ abstract class Driver {
      */
     private function getResult() {
         //返回数据集
+        //var_dump($this->PDOStatement);
         $result =   $this->PDOStatement->fetchAll(PDO::FETCH_ASSOC);
+        //var_dump($result);
+
         $this->numRows = count( $result );
         return $result;
     }
@@ -311,6 +324,11 @@ abstract class Driver {
         return $execute?$this->queryTimes+$this->executeTimes:$this->queryTimes;
     }
 
+    public function getDbLink(){
+        $this->initConnect(false);
+        if ( !$this->_linkID ) return false;
+        return $this->_linkID;
+    }
     /**
      * 获得执行次数
      * @access public

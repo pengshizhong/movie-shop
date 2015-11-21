@@ -1379,9 +1379,13 @@ class Model {
             array_shift($parse);
         }
         $sql  =   $this->parseSql($sql,$parse);
+        //var_dump($this->db);
         return $this->db->query($sql);
     }
 
+    public function getDbLink(){
+        return $this->db->getDbLink();
+    }
     /**
      * 执行SQL语句
      * @access public
