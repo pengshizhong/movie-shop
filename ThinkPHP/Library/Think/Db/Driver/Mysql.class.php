@@ -184,7 +184,17 @@ class Mysql extends Driver{
     }
     
 	
-
+    public function lockTable($tableName,$isWrite = false){
+        $dbLink = $this->getDbLink();
+        $isWrite = $isWrite?' write':' read';
+        $sql = 'LOCK TABLES ' . $tableName . $isWrite;
+        var_dump($dbLink);
+        $result = $dbLink->query($sql);
+        //$result->setFetchMode(PDO::FETCH_ASSOC);    //设置结果集返回格式,此处为关联数组,即不包含index下标
+        //$rs = $result->fetchAll();
+        echo '加锁成功';
+       // var_dump($rs);
+    }
     /**
      * 执行存储过程查询 返回多个数据集
      * @access public

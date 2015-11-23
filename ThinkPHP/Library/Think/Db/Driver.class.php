@@ -99,7 +99,10 @@ abstract class Driver {
                 if(version_compare(PHP_VERSION,'5.3.6','<=')){ 
                     // 禁用模拟预处理语句
                     $this->options[PDO::ATTR_EMULATE_PREPARES]  =   false;
+                    $this->options[PDO::ATTR_PERSISTENT]  =   true;
+
                 }
+                // var_dump($this->options);
                 $this->linkID[$linkNum] = new PDO( $config['dsn'], $config['username'], $config['password'],$this->options);
             }catch (\PDOException $e) {
                 if($autoConnection){
@@ -158,7 +161,7 @@ abstract class Driver {
         $this->debug(true);
 
         $this->PDOStatement = $this->_linkID->prepare($str);
-        var_dump($this->PDOStatement);
+        //var_dump($this->PDOStatement);
         if(false === $this->PDOStatement){
             $this->error();
             return false;
@@ -173,9 +176,9 @@ abstract class Driver {
         }
         $this->bind =   array();
         try{
-            echo 'start';
+            //echo 'start';
             $result =   $this->PDOStatement->execute();
-            var_dump($result);
+           // var_dump($result);
             // 调试结束
             $this->debug(false);
             if ( false === $result ) {

@@ -11,13 +11,21 @@ use Think\Model;
 class MovieModel extends Model
 {
 
-    function select($tableName,$where='',$limet='',$join=''){
+    function select($tableName,$where='',$limet='',$join='',$lock=false){
         $model  = M($tableName);
-        if($join)
-            $result = $model->join($join)->where($where)->limit($limet)->select();
-        else
-            $result = $model->where($where)->limit($limet)->select();
-        return $result;
+        if($join) {
+            if(!$lock)
+                $result = $model->join($join)->where($where)->limit($limet)->select();
+            else
+                $result = $model->join($join)->where($where)->limit($limet)->lock(true)->select();
+        }
+        else {
+            if(!$lock)
+                $result = $model->where($where)->limit($limet)->select();
+            else
+                $result = $model->where($where)->limit($limet)->lock(true)->select();
+        }
+            return $result;
     }
 
     function selectOne($tableName,$where){

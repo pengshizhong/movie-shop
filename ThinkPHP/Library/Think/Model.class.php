@@ -1911,9 +1911,5 @@ class Model {
         return $this;
     }
 
-    public function lockTable($table,$isWrite){
-        $isWrite = $isWrite?'write':'read';
-        $this->db->query(' lock tables ' . $table . ' ' . $isWrite);
-    }
 
 }
