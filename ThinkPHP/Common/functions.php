@@ -1548,3 +1548,17 @@ function think_filter(&$value){
 function in_array_case($value,$array){
     return in_array(strtolower($value),array_map('strtolower',$array));
 }
+
+function islogin(){
+    if(session('token')&&cookie('token')==session('token')){
+        return true;
+    }
+    else{
+        echo '<script>alert("请登陆后操作");location.href="' . U('sign/index'). '"</script>';
+        return false;
+    }
+}
+
+function getUserId(){
+    return session('user_id');
+}

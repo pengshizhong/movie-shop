@@ -28,7 +28,7 @@
                             <h4 class="title">{$movie['name']}</h4>
                             <h5>{$movie['remark']}</h5>
                             <div>
-                                <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">查看详情</button></a>
+                                <a href="{$movieurl}?movie_id={$movie['movie_id']}"><button type="button" class="btn btn-primary btn-sm">查看详情</button></a>
                             </div>
                         </div>
                     </div>

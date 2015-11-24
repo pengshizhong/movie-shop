@@ -8,8 +8,12 @@ class AController extends Controller {
         //$sql = 'lock tables user write';
         //$dbLink = $query->locak();
         //$ab = $query->query($sql);
-        $query->lockTable('user',1);
+        //$query->lockTable('user',1);
         //var_dump($dbLink);
         //var_dump($query);
+        $array=[
+        'a'=>'das',
+        ];
+        var_dump($query);
     }
 }

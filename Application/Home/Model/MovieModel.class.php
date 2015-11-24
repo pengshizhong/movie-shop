@@ -12,6 +12,7 @@ class MovieModel extends Model
 {
 
     function select($tableName,$where='',$limet='',$join='',$lock=false){
+      //  echo 'das';
         $model  = M($tableName);
         if($join) {
             if(!$lock)
@@ -20,8 +21,11 @@ class MovieModel extends Model
                 $result = $model->join($join)->where($where)->limit($limet)->lock(true)->select();
         }
         else {
-            if(!$lock)
+            if(!$lock) {
+               // echo 'dsadas';
                 $result = $model->where($where)->limit($limet)->select();
+
+            }
             else
                 $result = $model->where($where)->limit($limet)->lock(true)->select();
         }
