@@ -1550,7 +1550,7 @@ function in_array_case($value,$array){
 }
 
 function islogin(){
-    if(session('token')&&cookie('token')==session('token')){
+    if(S(cookie('token'))){
         return true;
     }
     else{
@@ -1560,5 +1560,6 @@ function islogin(){
 }
 
 function getUserId(){
-    return session('user_id');
+    $data = S(cookie('token'));
+    return $data['user_id'];
 }

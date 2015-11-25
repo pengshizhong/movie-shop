@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class UserController extends Controller {
     public function index(){
+        islogin();
         $this->assign('searchurl',U('Search/index'));
         $model  = new \Home\Model\MovieModel();
         $account = M('account');

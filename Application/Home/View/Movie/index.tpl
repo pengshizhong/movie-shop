@@ -28,26 +28,12 @@
                             <div class="panel-heading text-center">选择影院</div>
                             <div class="panel-body">
                                 <ul class="list-group">
-                                    <li class="list-group-item selected" data-id="1" >
-                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
-                                        <div class="down">华南农业大学越难路44号</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
-                                        <div class="down">华南农业大学越难路44号</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
-                                        <div class="down">华南农业大学越难路44号</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
-                                        <div class="down">华南农业大学越难路44号</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <div class="up">大地电影院 <small>可购票</small> <small>65元起</small></div>
-                                        <div class="down">华南农业大学越难路44号</div>
-                                    </li>
+                                    <?php foreach($allSchedule as $schedule){ ?>
+                                    <a href="{$ticketUrl}?schedule_id={$schedule['schedule_id']}"><li class="list-group-item">
+                                        <div class="up">{$schedule['name']} <small>可购票</small> <small>{$schedule['price']}元起</small></div>
+                                        <div class="down">{$schedule['address']}</div>
+                                    </li></a>
+                                    <?php } ?>
                                 </ul>
                             </div>
                         </div>

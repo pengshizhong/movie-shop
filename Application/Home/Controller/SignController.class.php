@@ -8,11 +8,12 @@ class SignController extends Controller {
     }
 
     private function setToken($data){
-        $token = md5(date('Y-m-d-h-i-s'));
-        session('token',$token);
+        $token = md5(date('Y-m-d-h-i-s') . $data['user_id']);
+        //session('token',$token);
         cookie('token',$token);
-        cookie('username',$data['nickname']);
-        session('user_id',$data['user_id']);
+        //cookie('username',$data['nickname']);
+        //session('user_id',$data['user_id']);
+        S($token,$data);
     }
     public function check(){
 

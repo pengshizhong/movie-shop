@@ -18,10 +18,19 @@ class MovieController extends Controller {
             $movie['cinema'] = $movie['cinema'][0];
         }
        // var_dump($dom);
+       // $ticketUrl = ;
+        $join =[
+            'join hall on hall.hall_id=schedule.hall_id',
+            'join cinema on hall.cinema_id=cinema.cinema_id',
+        ];
+        $allSchedule = $model->select('schedule','movie_id=' . $id,'',$join);
         $allComments = $model->select('comment','movie_id=' . $id,'',' user on user.user_id=comment.user_id');
         $allMovie = $model->select('movie');
+        //var_dump($allSchedule);
+        $this->assign('allSchedule',$allSchedule);
         $this->assign('movieurl',U('Movie/index'));
         $this->assign('dom',$dom);
+        $this->assign('ticketUrl',U('ticket/index'));
         $this->assign('movie',$result[0]);
         $this->assign('allmovie',$allMovie);
         $this->assign('allComments',$allComments);

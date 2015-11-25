@@ -21,7 +21,7 @@
                         <h4 class="title">{$mv['name']}</h4>
                         <h5>{$mv['remark']}</h5>
                         <div>
-                            <a href="movie.html"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
+                            <a href="{$movieurl}?movie_id={$mv['movie_id']}"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class TicketController extends Controller {
     public function index(){
+        islogin();
         $id = I('get.schedule_id');
         $allcss =['ticket'];
         $model  = new \Home\Model\MovieModel();
@@ -27,12 +28,13 @@ class TicketController extends Controller {
     }
 
     public function buy(){
+
         //  var_dump($_POST);
         //  $lockModel = new \Think\Model(); // 实例化一个model对象 没有对应任何数据表
         $model  = new \Home\Model\MovieModel();
         $schedule_id = I('post.schedule_id');
         $tickets = I('post.seats');
-        $user_id = session('user_id');
+        $user_id = getUserId();
          // $account = M('account');
         //$lockModel = M();
         M()->startTrans();
