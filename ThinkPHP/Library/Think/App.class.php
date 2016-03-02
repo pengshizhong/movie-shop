@@ -43,7 +43,6 @@ class App {
 			array_walk_recursive($_POST,	'think_filter');
 			array_walk_recursive($_REQUEST,	'think_filter');
 		}
-
         // URL调度结束标签
         Hook::listen('url_dispatch');         
 

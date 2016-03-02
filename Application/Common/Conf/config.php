@@ -18,12 +18,13 @@ return array(
         'ACTION_CACHE_ON'       =>  false,  // 默认关闭Action 缓存
         'HTML_CACHE_ON'         =>  false,   // 默认关闭静态缓存
         'STORAGE'               =>  './Public/',
-        'BASE_HREF'             =>  'http://localhost/movie-shop/',
+        'BASE_HREF'             =>  'http://movie.psz.com/',
         'TPL_PATH'              =>  'Application/Admin/View/',
         'TMPL_CACHE_ON' => false,
         'TMPL_CACHE_ON' => false,
         'DATA_CACHE_PREFIX' => 'Redis_',//缓存前缀
         'DATA_CACHE_TYPE'=>'Redis',//默认动态缓存为Redis
+        'DATA_CACHE_TIME'=>'0',
         'REDIS_RW_SEPARATE' => true, //Redis读写分离 true 开启
         'REDIS_HOST'=>'127.0.0.1', //redis服务器ip，多台用逗号隔开；读写分离开启时，第一台负责写，其它[随机]负责读；
         'REDIS_PORT'=>'6379',//端口号

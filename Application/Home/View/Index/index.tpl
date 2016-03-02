@@ -68,7 +68,8 @@
                                 <h4 class="title">{$allmovie[$i]['name']}</h4>
                                 <h5>{$allmovie[$i]['remark']}</h5>
                                 <div>
-                                    <a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
+                                    <?php $tmp = U('Movie/index',[ 'movie_id' => $allmovie[$i]['movie_id'], ]); ?>
+                                    <a href="{$tmp}"><button type="button" class="btn btn-primary btn-sm">影片详情</button></a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +82,7 @@
 
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="{$searchurl}" method="get">
+                <form class="form-inline" action="{$searchurl}" method="post">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -103,8 +104,10 @@
                     <h4>本周口碑榜 <a href=""><small>更多榜单</small></a></h4>
                 </div>
                 <ol>
-                    <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+                    <?php for($i=0;$i<8;$i++){
+                        $tmp = U('Movie/index',[ 'movie_id' => $allmovie[$i]['movie_id']]);
+                    ?>
+                    <li><a href="{$tmp}">{$allmovie[$i]['name']}</a></li>
 
                     <?php } ?>
                 </ol>

@@ -54,7 +54,8 @@
                 </div>
                 <ol>
                     <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+                    <?php $tmp = U('Movie/index',[ 'movie_id' => $allmovie[$i]['movie_id']]); ?>
+                    <li><a href="{$tmp}">{$allmovie[$i]['name']}</a></li>
 
                     <?php } ?>
                 </ol>

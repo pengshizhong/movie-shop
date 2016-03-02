@@ -22,7 +22,7 @@
 
 <body>
 <div class="container">
-    <form class="form-signin" action="{$submitUrl}">
+    <form class="form-signin" method='post' action="{$submitUrl}">
         <h2 class="form-signin-heading">紫荆电影网</h2>
         <label for="inputEmail" class="sr-only">电子邮箱</label>
         <input name="email" type="email" id="inputEmail" class="form-control" placeholder="电子邮箱" required autofocus>

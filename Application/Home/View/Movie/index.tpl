@@ -109,7 +109,7 @@
         </div>
         <div class="col-xs-4 aside">
             <div class="search">
-                <form class="form-inline" action="{$searchurl}" method="get">
+                <form class="form-inline" action="{$searchurl}" method="post">
                     <div class="form-group">
                         <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                         <div class="input-group">
@@ -127,7 +127,8 @@
                 </div>
                 <ol>
                     <?php for($i=0;$i<8;$i++){ ?>
-                    <li><a href="{$movieurl}?movie_id={$allmovie[$i]['movie_id']}">{$allmovie[$i]['name']}</a></li>
+                    <?php  $tmp=U('Movie/index',['movie_id'=>$allmovie[$i]['movie_id']]) ?>
+                    <li><a href="{$tmp}">{$allmovie[$i]['name']}</a></li>
                     <?php } ?>
                 </ol>
             </div>
