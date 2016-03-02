@@ -66,7 +66,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 <include file="./Application/Home/View/Something/footer.tpl"  />
