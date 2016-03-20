@@ -3,7 +3,7 @@
     <div class="page-header">
         <h1 class="text-center">
             <img  class="usericon" src="__PUBLIC__/{$userinfo['headurl']}" alt="..." class="headimg img-thumbnail">
-            {$userinfo['nickname']}! <small>我为自己代言</small></h1>
+            <small>昵称：</small>  {$userinfo['nickname']}! </h1>
     </div>
     <div class="row">
         <div class="col-xs-8">

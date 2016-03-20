@@ -27,6 +27,7 @@ class Dispatcher {
         $varController  =   C('VAR_CONTROLLER');
         $varAction      =   C('VAR_ACTION');
         $urlCase        =   C('URL_CASE_INSENSITIVE');
+
         if(isset($_GET[$varPath])) { // 判断URL里面是否有兼容模式参数
             $_SERVER['PATH_INFO'] = $_GET[$varPath];
             unset($_GET[$varPath]);
@@ -220,8 +221,14 @@ class Dispatcher {
                 }
             }
             // 获取操作
+
             if(!defined('BIND_ACTION')){
                 $_GET[$varAction]  =   array_shift($paths);
+                //应对nginx不知为何不识别?后面的参数
+//                if(!strpos($paths,'?')) {
+//                    $_GET[$varAction] = substr($paths,0,strpos('?'));
+//                }
+
             }
             // 解析剩余的URL参数
             $var  =  array();

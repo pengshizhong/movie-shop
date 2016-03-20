@@ -33,6 +33,8 @@ class VipListController extends Controller {
         $where = $where . ' 1=1 ';
         $limit = I('get.pageInde') * I('get.limit');
         $result = $model->select($this->tableName,$where,I('get.start') . ',' . $limit);
+    //        echo $result;
+    //        exit;
         $this->selectData($result,$this->util);
     }
 
